@@ -1,4 +1,4 @@
-# MecaToolbox (Herramientas de Mecánico)
+# Herramientas Mecánicas
 
 Este repositorio es una suite modular de herramientas para ingeniería mecánica, diseñada para transformar cálculos estáticos en un dashboard interactivo.
 % Maybe make it a bit more of a game, kinematic simulator
