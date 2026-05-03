@@ -3,7 +3,7 @@ import MysteryShell from '../../../shared_design/MysteryShell.jsx';
 import {
   Thermometer, Wind, Layers, Activity,
   Info, ChevronRight, Droplets, Zap,
-  Ruler, ArrowDownUp
+  Ruler, ChevronDown
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -263,26 +263,40 @@ function App() {
   return (
     <MysteryShell>
       <aside className="sidebar">
-        <div className="logo-area" style={{ marginBottom: '1.5rem' }}>
-          <Layers size={28} color="#00a3ff" />
-          <span>MecaToolbox</span>
-        </div>
-
-        <nav className="nav-links subnav">
-          {Object.entries(TABS).map(([id, { label, icon }]) => (
-            <NavItem key={id} id={id} active={activeTab} label={label} icon={icon} onClick={setActiveTab} />
-          ))}
-        </nav>
-
-        <div style={{ marginTop: 'auto', padding: '1rem', background: 'rgba(255,255,255,0.03)', borderRadius: '12px', fontSize: '0.8rem', color: '#8b949e' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <Info size={14} />
-            <span>MecaToolbox Demo v1.0</span>
+        <nav className="panel">
+          <div className="logo-area" style={{ marginBottom: '1.5rem' }}>
+            <Layers size={28} color="#00a3ff" />
+            <span>MecaToolbox</span>
           </div>
-        </div>
+
+          <details className="mobile-dropdown" open={window.innerWidth > 900}>
+            <summary className="mobile-only">
+              <span>{titles[activeTab] || 'Herramientas'}</span>
+              <div className="dropdown-chevron"><ChevronDown size={14} /></div>
+            </summary>
+            <div className="subnav">
+              {Object.entries(TABS).map(([id, { label, icon }]) => (
+                <NavItem key={id} id={id} active={activeTab} label={label} icon={icon} onClick={(selectedId) => {
+                  setActiveTab(selectedId);
+                  const details = document.querySelector('.mobile-dropdown');
+                  if (details && window.innerWidth <= 900) {
+                    details.removeAttribute('open');
+                  }
+                }} />
+              ))}
+            </div>
+          </details>
+
+          <div className="desktop-only" style={{ marginTop: 'auto', padding: '1rem', background: 'rgba(255,255,255,0.03)', borderRadius: '12px', fontSize: '0.8rem', color: '#8b949e' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <Info size={14} />
+              <span>MecaToolbox Demo v1.0</span>
+            </div>
+          </div>
+        </nav>
       </aside>
 
-      <main className="panel" style={{ padding: '3rem' }}>
+      <main className="panel content-panel">
         <header className="header" style={{ marginBottom: '3rem', textAlign: 'center' }}>
           <h1 className="hero-title">{titles[activeTab] || activeTab}</h1>
           <p style={{ color: 'var(--muted)' }}>Suite de herramientas de ingeniería mecánica — cálculos en tiempo real.</p>

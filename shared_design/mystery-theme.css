@@ -408,20 +408,11 @@ header.panel {
     }
 
     .mobile-dropdown .subnav {
-        max-height: 65vh;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-        padding: 0.25rem;
-        background: #071026; /* Solid var(--bg-dark) equivalent */
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        z-index: 1000;
-        border: 1px solid var(--panel-border);
-        border-top: none;
-        border-radius: 0 0 1.25rem 1.25rem;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+        max-height: none;
+        overflow-y: visible;
+        padding: 0.5rem 0;
+        position: relative;
+        border-top: 1px solid var(--panel-border);
     }
 
     .desktop-only {
@@ -443,10 +434,8 @@ header.panel {
         box-sizing: border-box;
 
         /* Dropdown behavior */
-        position: sticky;
-        top: -1px; /* Slight offset for border alignment */
-        z-index: 100;
-        background: var(--bg-dark); /* Solid background for sticky header */
+        position: relative;
+        z-index: 10;
         padding-top: 0.5rem;
         padding-bottom: 0.5rem;
         border-bottom: 1px solid transparent;
@@ -489,8 +478,6 @@ header.panel {
     .mobile-dropdown[open] summary {
         margin-bottom: 1rem;
         border-bottom: 1px solid var(--panel-border);
-        background: var(--bg-dark); /* Solid background to obscure content behind */
-        backdrop-filter: blur(10px);
     }
 
     /* Socials SVG-only on Mobile */
@@ -589,6 +576,14 @@ header.panel {
     position: sticky;
     top: 2rem;
     max-height: calc(100vh - 4rem);
+}
+
+@media (max-width: 900px) {
+    .sidebar {
+        position: relative;
+        top: 0;
+        max-height: none;
+    }
 }
 
 /* Sidebar Navigation Panels */

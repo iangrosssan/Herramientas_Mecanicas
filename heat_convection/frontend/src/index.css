@@ -1,5 +1,28 @@
 @import '../../../shared_design/mystery-theme.css';
 
+/* Layout Adjustments */
+.content-panel {
+  padding: 3rem;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  background: linear-gradient(to right, var(--accent-secondary), #7000ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 900px) {
+  .content-panel {
+    padding: 1.5rem;
+  }
+}
+
 /* Forms */
 .form-grid {
   display: grid;
@@ -57,13 +80,6 @@
     width: 100%;
     justify-content: center;
     font-size: 1rem;
-  }
-
-  .nav-links {
-    flex-direction: row;
-    width: 100%;
-    overflow-x: auto;
-    gap: 0.5rem;
   }
 
   .form-grid {
