@@ -1,5 +1,5 @@
 import type { Meters, Pascals } from "../shared/units";
-import { type SolverPayload, buildPayload, checkBounds } from "../shared/guards";
+import { type SolverPayload, buildPayload } from "../shared/guards";
 import { zeros, linspace, cumtrapz } from "./linalg";
 
 export interface Load {

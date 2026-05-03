@@ -1,4 +1,5 @@
 import { useState } from 'react'
+// @ts-expect-error - JSX component imported into TSX
 import MysteryShell from '../../shared_design/MysteryShell.jsx'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
