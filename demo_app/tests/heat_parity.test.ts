@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { solveForcedConvection } from '../src/lib/physics/heat/solver';
-import validationCases from '../../scientific_models/heat/spec/validation_cases.json';
+
 
 describe('Heat Convection Scientific Parity', () => {
   it('Should match Canonical Python Fixtures', () => {

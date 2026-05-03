@@ -27,7 +27,7 @@ export interface HeatMetaPayload {
 function getClosestProperties(fluid: "Water" | "Air", target_T: number) {
   // Finds the closest temperature property set in the JSON spec
   // For exact Tier-A tests, we'll input temperatures exactly available in the JSON
-  const data = (fluidData as any)[fluid];
+  const data = (fluidData as Record<string, Record<string, { nu: number, pr: number, k: number }>>)[fluid];
   const temps = Object.keys(data).map(Number);
   const closest = temps.reduce((prev, curr) => Math.abs(curr - target_T) < Math.abs(prev - target_T) ? curr : prev);
   return data[closest.toString()];
@@ -68,7 +68,7 @@ export function solveForcedConvection(input: HeatInput): SolverPayload<HeatOutpu
     payload.status = "warning";
   }
 
-  let meta: HeatMetaPayload = {
+  const meta: HeatMetaPayload = {
     regime: regime,
     correlation_used: regime === "turbulent" ? "Dittus-Boelter" : "Constant Wall Heat Flux (Circular)"
   };

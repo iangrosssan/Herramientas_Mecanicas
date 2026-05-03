@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { solveDeflection } from '../src/lib/physics/deflection/solver';
+import { solveDeflection, type Load } from '../src/lib/physics/deflection/solver';
 import canonicalCases from '../../scientific_models/deflection/spec/validation_cases.json';
 
 describe('Deflection Scientific Parity', () => {
@@ -13,7 +13,7 @@ describe('Deflection Scientific Parity', () => {
       L_m: simCase.inputs.L_m,
       E_Pa: simCase.inputs.E_Pa,
       I_m4: simCase.inputs.I_m4,
-      loads: simCase.inputs.loads as any,
+      loads: simCase.inputs.loads as unknown as Load[],
       support_type: "simply_supported"
     });
 
