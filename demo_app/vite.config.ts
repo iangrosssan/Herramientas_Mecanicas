@@ -8,7 +8,9 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@shared': path.resolve(__dirname, '../../shared_design'),
+      '@shared': path.resolve(__dirname, '../shared_design'),
+      'react': path.resolve(__dirname, 'node_modules/react'),
+      'react-dom': path.resolve(__dirname, 'node_modules/react-dom'),
     },
   },
 })

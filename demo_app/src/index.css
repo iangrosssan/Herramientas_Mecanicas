@@ -7,6 +7,28 @@
 }
 
 /* Layout Utilities */
+.content-panel {
+  padding: 3rem;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  background: linear-gradient(to right, var(--accent-secondary), #7000ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 900px) {
+  .content-panel {
+    padding: 1.5rem;
+  }
+}
+
 .module-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
