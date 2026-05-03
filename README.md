@@ -65,6 +65,18 @@ chmod +x start_toolbox.sh
 
 Acceda a la UI en: [http://localhost:5173](http://localhost:5173)
 
+### Uso de Engineering Toolbox Demo (React + TS)
+
+Esta es la nueva versión en desarrollo impulsada por React y TypeScript:
+
+```bash
+cd demo_app
+npm install
+npm run dev
+```
+
+Acceda a la UI en: [http://localhost:5173](http://localhost:5173)
+
 ### Uso de Deflection Tool
 
 ```bash
