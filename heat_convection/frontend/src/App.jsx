@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useMemo } from 'react';
+/* eslint-disable react/prop-types */
+import { useState, useMemo } from 'react';
 import MysteryShell from '../../../shared_design/MysteryShell.jsx';
 import {
   Thermometer, Wind, Layers, Activity,

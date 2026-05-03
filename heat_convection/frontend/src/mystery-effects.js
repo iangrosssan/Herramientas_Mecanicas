@@ -1,11 +1,4 @@
 /* -------------------------
-   Mobile detection
--------------------------- */
-function isMobile() {
-    return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-}
-
-/* -------------------------
    Project Data Integration
 -------------------------- */
 const summaries = {};
