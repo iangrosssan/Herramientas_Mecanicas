@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "source": "deflection_tool.core.solver analytical canonical verification",
+    "units": "SI",
+    "generated_by": "manual_override",
+    "generated_at": "2026-04-02",
+    "notes": "Verified against hand-calculated analytical solutions for canonical beam conditions"
+  },
+  "cases": [
+    {
+      "case_id": "simply_supported_center_load",
+      "inputs": {
+        "L_m": 2.0,
+        "E_Pa": 200e9,
+        "I_m4": 3.0679615e-7,
+        "loads": [
+          {
+            "type": "point",
+            "magnitude_N": -1000,
+            "position_m": 1.0
+          }
+        ]
+      },
+      "outputs": {
+        "max_deflection_m": -0.0027164,
+        "max_moment_Nm": 500.0,
+        "reactions_N": [500.0, 500.0]
+      }
+    }
+  ]
+}

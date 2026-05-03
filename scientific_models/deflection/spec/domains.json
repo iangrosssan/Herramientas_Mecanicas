@@ -1,0 +1,20 @@
+{
+  "metadata": {
+    "source": "Herramientas de Mecanico / Deflection Solver",
+    "units": "SI",
+    "generated_at": "2026-04-02",
+    "notes": "Limits of acceptable parameters for Tier A beam mechanics"
+  },
+  "Dimensions": {
+    "length_m": {"min": 0.01, "max": 10.0},
+    "diameter_m": {"min": 0.001, "max": 1.0}
+  },
+  "Materials": {
+    "E_Pa": {"min": 1e9, "max": 500e9},
+    "G_Pa": {"min": 1e9, "max": 200e9}
+  },
+  "Validity": {
+    "allowed_supports": ["cantilever", "simply_supported"],
+    "allowed_loads": ["point", "distributed", "moment"]
+  }
+}

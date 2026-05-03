@@ -1,0 +1,17 @@
+{
+  "metadata": {
+    "source": "Herramientas de Mecanico / Heat Convection Model",
+    "units": "SI",
+    "generated_at": "2026-04-02",
+    "notes": "Limits of acceptable parameters for Tier A forced convection"
+  },
+  "Temperature": {
+    "Water": {"min_C": 0.1, "max_C": 100},
+    "Air": {"min_K": 200, "max_K": 400}
+  },
+  "Reynolds": {
+    "PipeInternal_Laminar": {"max": 2300},
+    "PipeInternal_Turbulent": {"min": 10000},
+    "BoundaryLayer_Turbulent": {"min": 500000}
+  }
+}

@@ -4,7 +4,8 @@ on:
   push:
     branches: [main]
     paths:
-      - 'heat_convection/frontend/**'
+      - 'demo_app/**'
+      - 'scientific_models/**'
   workflow_dispatch:
 
 permissions:
@@ -29,12 +30,17 @@ jobs:
         with:
           node-version: 22
           cache: npm
-          cache-dependency-path: heat_convection/frontend/package-lock.json
+          cache-dependency-path: demo_app/package-lock.json
 
-      - name: Install & Build
-        working-directory: heat_convection/frontend
+      - name: Install & Parity Check
+        working-directory: demo_app
         run: |
           npm ci
+          npx vitest run
+
+      - name: Build Demo Static App
+        working-directory: demo_app
+        run: |
           npm run build
 
       - uses: actions/configure-pages@v5
@@ -43,7 +49,7 @@ jobs:
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: heat_convection/frontend/dist
+          path: demo_app/dist
 
       - id: deployment
         uses: actions/deploy-pages@v4

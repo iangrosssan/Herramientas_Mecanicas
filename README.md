@@ -18,9 +18,11 @@ Este repositorio es una suite modular de herramientas para ingeniería mecánica
   
   según como el usuario interactúe distintos paneles de acceso
 2. **Motor Rápido y Modular**: Mantener correlaciones físicas y propiedades de fluidos en una capa de backend limpia (FastAPI) accesible para cualquier frontend.
+
 3. **Experiencia de Usuario (UX) Superior**: Dashboard intuitivo con feedback en tiempo real, reduciendo el margen de error en cálculos complejos.
    
    % Choose your fighter type deal
+
 4. **Escalabilidad**: Diseño preparado para incorporar módulos adicionales (Termodinámica, Mecánica de Sólidos, etc.) sin rediseñar la infraestructura base.
 
 ## 🚀 Módulos Actuales
@@ -76,6 +78,20 @@ Vea el archivo [proposed_structure.md](file:///home/iangrosan/Desktop/Proyectos/
 % of course, the idea is to upload all toola onto localhost, but that'll take time, consider a section on the Implementation Plan
 
 # Future Goals
+
+## Demo
+
+- Copy Portafolio styling
+
+- Add unit tests, consider validated results
+
+- Add pint for "freedom of unit input"
+
+- Increase variety on current functionalities: refrigerants, adimensional numbers, etc
+
+- Incorporate deflection_tool
+
+
 
 Última Actualización
 marzo 10 2026

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import MysteryShell from '../../../shared_design/MysteryShell.jsx';
 import {
   Thermometer, Wind, Layers, Activity,
   Info, ChevronRight, Droplets, Zap,
@@ -12,12 +13,13 @@ import {
   MATERIALS, circularProfile, rectangularProfile, solveBeam
 } from './physics/deflection';
 
-/* ─── Reusable Components ─── */
 const NavItem = ({ id, active, label, icon: Icon, onClick }) => (
-  <div className={`nav-item ${active === id ? 'active' : ''}`} onClick={() => onClick(id)}>
-    <Icon size={20} />
-    <span>{label}</span>
-    {active === id && <ChevronRight size={16} style={{ marginLeft: 'auto' }} />}
+  <div className={`section-item ${active === id ? 'active' : ''}`} onClick={() => onClick(id)}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+      <Icon size={20} />
+      <span className="repo-text">{label}</span>
+    </div>
+    <ChevronRight size={16} style={{ marginLeft: 'auto', opacity: active === id ? 1 : 0, transition: 'opacity 0.2s' }} />
   </div>
 );
 
@@ -239,7 +241,7 @@ function App() {
 
   const TABS = {
     properties: { label: 'Propiedades de Fluidos', icon: Thermometer },
-    reynolds:   { label: 'Número de Reynolds',     icon: Wind },
+    reynolds:   { label: 'Números Adimensionales',     icon: Wind },
     deflection: { label: 'Deflexión de Vigas',     icon: Ruler },
   };
 
@@ -259,14 +261,14 @@ function App() {
   };
 
   return (
-    <div className="app-container">
+    <MysteryShell>
       <aside className="sidebar">
-        <div className="logo-area">
+        <div className="logo-area" style={{ marginBottom: '1.5rem' }}>
           <Layers size={28} color="#00a3ff" />
           <span>MecaToolbox</span>
         </div>
 
-        <nav className="nav-links">
+        <nav className="nav-links subnav">
           {Object.entries(TABS).map(([id, { label, icon }]) => (
             <NavItem key={id} id={id} active={activeTab} label={label} icon={icon} onClick={setActiveTab} />
           ))}
@@ -280,10 +282,10 @@ function App() {
         </div>
       </aside>
 
-      <main className="main-content">
-        <header className="header">
-          <h1>{titles[activeTab] || activeTab}</h1>
-          <p>Suite de herramientas de ingeniería mecánica — cálculos en tiempo real.</p>
+      <main className="panel" style={{ padding: '3rem' }}>
+        <header className="header" style={{ marginBottom: '3rem', textAlign: 'center' }}>
+          <h1 className="hero-title">{titles[activeTab] || activeTab}</h1>
+          <p style={{ color: 'var(--muted)' }}>Suite de herramientas de ingeniería mecánica — cálculos en tiempo real.</p>
         </header>
 
         <AnimatePresence mode="wait">
@@ -298,7 +300,7 @@ function App() {
           </motion.div>
         </AnimatePresence>
       </main>
-    </div>
+    </MysteryShell>
   );
 }
 

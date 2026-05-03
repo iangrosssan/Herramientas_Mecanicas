@@ -5,7 +5,6 @@ import path from 'path'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/Herramientas_Mecanicas/',
   resolve: {
     alias: {
       '@shared': path.resolve(__dirname, '../../shared_design'),
