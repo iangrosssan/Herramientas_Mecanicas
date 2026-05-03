@@ -4,6 +4,7 @@ import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/Herramientas_Mecanicas/',
   plugins: [react()],
   resolve: {
     alias: {
